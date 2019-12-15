@@ -1,0 +1,110 @@
+
+/*全体*/
+body {
+    background: linear-gradient(-135deg,#302833,#d3cbc6 ,#4d4c61);
+}
+
+.main{
+  margin-top:80px;
+}
+
+.navbar{
+  background-color: white;
+  opacity: 0.8;
+}
+
+i, .navbar-brand{
+  color:#e6b422
+}
+
+.sort a, .sort span{
+  color:white;
+}
+
+.search-btn{
+  border:none;
+}
+
+.edit-delete-btn a, .edit-delete-btn span{
+  font-size: 12px !important;
+}
+/*END : 全体*/
+
+/*TOP*/
+.post{
+  color: white !important;
+  background-color: rgba(0,0,0, 0.3);
+  border: none;
+  border-radius: 0px;
+}
+
+.post a{
+  color:white;
+}
+
+.modal-post{
+  background-color: rgba(0,0,0, 0.7);
+}
+
+.card-body img{
+  height: 280px;
+  width:280px;
+}
+
+.top-container{
+  margin-bottom:150px;
+}
+
+.top-container a{
+  font-size: 14px;
+}
+
+.caption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*END : TOP*/
+
+/*CREATE*/
+.create-form{
+  padding:39px;
+  color: white;
+  background-color: rgba(0,0,0, 0.3); 
+}
+
+.mypage-container{
+  margin-top:100px !important;
+}
+
+
+.mypage-container, .mypage-container a{
+  color: white;
+}
+
+.mypage-container a{
+  font-size: 14px;
+}
+/*END : CREATE*/
+
+
+@media screen and (min-width:768px) {
+
+.mypage-container{
+  width:60%;
+  margin: auto; 
+}
+
+.create-container{
+  width:50%;
+  margin: auto;
+}
+
+.edit-container{
+  height: 1500px !important;
+  width:35%;
+  margin: auto;
+}
+  
+}
+
