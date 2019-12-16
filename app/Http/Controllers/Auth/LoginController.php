@@ -58,7 +58,7 @@ class LoginController extends Controller
                 'password' => Hash::make($socialUser->getNickname()),  // 例としての記述なので、マネしないように
             ]);
             Auth::login($user);
-            return redirect('/home');
+            return redirect('/top');
         }
       }
 }
