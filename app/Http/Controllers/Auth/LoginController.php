@@ -50,7 +50,7 @@ class LoginController extends Controller
     
         if ($user) {
             Auth::login($user);
-            return redirect('/home');
+            return redirect('/top');
         } else {
             $user = User::create([
                 'name' => $socialUser->getNickname(),
