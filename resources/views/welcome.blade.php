@@ -7,7 +7,8 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">      
+        <script src="https://kit.fontawesome.com/7df3a926cd.js" crossorigin="anonymous"></script>
 
         <!-- Bootstrap -->
         <link rel="stylesheet"
@@ -39,12 +40,6 @@
                     <div class="card-body mt-2" id="login">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-
-                            <div class="form-group row">
-                                <label for="github" class="col-md-6 col-form-label text-md-right">
-                                    <a href="{{ url('login/github') }}">Login with GitHub</a>
-                                </label>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -94,9 +89,12 @@
                                         </a>
                                     @endif
 
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
-                                    </button>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="{{ url('login/github') }}" class="mr-3"><i class="fab fa-github"></i></a>
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Login') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -159,9 +157,12 @@
 
                             <div class="form-group row mb-0 text-right">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="{{ url('login/github') }}" class="mr-3"><i class="fab fa-github"></i></a>
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
