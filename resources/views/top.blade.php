@@ -7,9 +7,16 @@
     <div class="m-0 sort">
         <i class="fas fa-sort-amount-down"></i>
         <a class="navbar-brand ml-2" href="{{ route('top') }}">New</a>
-        <span>/</span>
-        <a class="navbar-brand ml-3" href="{{ route('top',['order'=>'popular']) }}">Popular</a>
+        <a class="navbar-brand ml-1" href="{{ route('top',['order'=>'popular']) }}">Popular</a>
+        <span>|</span>
+        <a class="navbar-brand ml-3" data-toggle="modal" data-target="#searchModal">
+           <i class="fas fa-search"></i>
+        </a>
     </div>
+
+    @if(count($posts) <= 6)
+    <div class="vh-100">
+    @endif
 
     <div class="row">
 
@@ -19,6 +26,7 @@
              data-toggle="modal" 
              data-target="#post-modal" 
              data-user="{{ $post->user->name }}" 
+             data-user_icon="data:image/png;base64,{{ $post->user->user_icon }}"
              data-caption="{{ $post->caption }}" 
              data-image="data:image/png;base64,{{ $post->image }}"
              data-url="{{ route('mypage', ['user_id'=>$post->user->id]) }}">
@@ -26,10 +34,17 @@
           <div class="post" id="post">
 
             <div class="card-body">
-              <a href="{{ route('mypage', ['user_id'=>$post->user->id]) }}"> {{ $post->user->name }} </a>
+              <div class="d-flex align-items-center">
+                @if ($post->user->user_icon !== null)
+                    <img src="data:image/png;base64,{{ $post->user->user_icon }}" class="user-icon-sm mr-3"> 
+                @else
+                    <div class="user-icon-sm mr-3"></div>
+                @endif
+                <a href="{{ route('mypage', ['user_id'=>$post->user->id]) }}"> {{ $post->user->name }} </a>
+              </div>
               <hr>
               <div class="text-center">
-                <img src="data:image/png;base64,{{ $post->image }}">
+                <img class="card-image" src="data:image/png;base64,{{ $post->image }}">
               </div>
               <p class="mt-3 caption"> {{ $post->caption }} </p>
             </div>
@@ -57,7 +72,9 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content post modal-post">
 
-                  <div class="modal-header">
+                  <div class="modal-header d-flex align-items-center">
+                    <img id="user_icon" class="user-icon-sm mr-3"> 
+                    <div id="user_icon_sub" class="d-none user-icon-sm mr-3"></div>
                     <a id="user" href=""></a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="閉じる"><span aria-hidden="true">&times;</span></button>
                   </div>
@@ -72,7 +89,7 @@
                           <a href="{{ route('delete', ['id'=>$post->id])}}">　削除</a>
                         </div>
                         @endif
-                        <img class="w-100 h-100 mt-3"></img>
+                        <img id="post_image" class="w-100 h-100 mt-3"></img>
                         <p class="mt-3"></p>
                       </div>
 
@@ -91,6 +108,11 @@
         <!-- END : Post Modal -->
         @endforeach
 
-      </div>
+    </div>
+
+    @if(count($posts) <= 6)
+    </div>
+    @endif
+
   </div>
 @endsection

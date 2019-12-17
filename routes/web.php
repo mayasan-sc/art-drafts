@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/store', 'PostsController@store')->name('store');
     
     Route::get('/mypage', 'PostsController@mypage',[\Auth::user()])->name('mypage');
+    Route::get('/edit_mypage', 'PostsController@edit_mypage',[\Auth::user()])->name('edit_mypage');
+    Route::post('/update_user', 'PostsController@update_user',[\Auth::user()])->name('update_user');
 
     Route::post('/like', 'LikesController@like')->name('like');
 

@@ -45,9 +45,6 @@
                         <a class="navbar-brand" href="{{ route('top') }}">
                             <i class="fas fa-home"></i>
                         </a>
-                        <a type="button" class="navbar-brand" data-toggle="modal" data-target="#searchModal">
-                            <i class="fas fa-search"></i>
-                        </a>
                         <a class="navbar-brand" href="{{ route('create') }}">
                             <i class="fas fa-plus-square"></i>
                         </a>

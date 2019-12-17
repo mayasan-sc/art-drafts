@@ -7,7 +7,7 @@ use App\User;
 use App\Post;
 use App\Like;
 use App\LikePostSum;
-
+use Illuminate\Support\Facades\Hash;
 class PostsController extends Controller
 {
 
@@ -88,8 +88,37 @@ class PostsController extends Controller
 
             return view('mypage' , ['user'=>$user, 'login_user_id'=>$login_user_id, 'posts' => $posts, 'likes_post_sum' => $likes_post_sum, 'like_user_sum'=>$like_user_sum]);
         } else {
-            return redirect()->route('home');
+            return redirect()->route('top');
         }
+    }
+
+    public function edit_mypage(Request $request){
+        $user = \Auth::user();
+        if($user){
+            return view('edit_mypage' , ['user'=>$user]);
+        } else {
+            return redirect()->route('top');
+        }
+    }
+
+    public function update_user(Request $request)
+    {
+      $login_user_id = \Auth::user()->id;
+      $update_user_id = $request->id; 
+      if ($login_user_id == $update_user_id){
+        $user = User::find($update_user_id);
+        if ($request->user_icon){
+            $user->user_icon = base64_encode(file_get_contents($request->user_icon->getRealPath()));
+        }
+        $user->name = request('name');
+        $user->email = request('email'); 
+        $user->password = Hash::make($request['password']);
+        $user->update();
+        return redirect()->route('mypage');
+      } else {
+        return redirect()->route('top');
+      }
+
     }
 
     public function edit(Request $request){

@@ -64,10 +64,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (isset($data->user_icon)){
+            $user_icon = base64_encode(file_get_contents($data->user_icon->getRealPath()));
+        } else {
+            $user_icon = '';
+        }
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'user_icon'=> $user_icon
         ]);
     }
 }

@@ -28,6 +28,18 @@ i, .navbar-brand{
 .edit-delete-btn a, .edit-delete-btn span{
   font-size: 12px !important;
 }
+
+.user-icon{
+  background-color:#e6b422;
+  height:35px;
+  width:35px;
+}
+
+.user-icon-sm{
+  background-color:#e6b422;
+  height:15px;
+  width:15px;
+}
 /*END : 全体*/
 
 /*TOP*/
@@ -46,7 +58,7 @@ i, .navbar-brand{
   background-color: rgba(0,0,0, 0.7);
 }
 
-.card-body img{
+.card-image {
   height: 280px;
   width:280px;
 }
@@ -95,6 +107,11 @@ i, .navbar-brand{
   margin: auto; 
 }
 
+.edit-profile-container{
+  width:40%;
+  margin: auto;   
+}
+
 .create-container{
   width:50%;
   margin: auto;
@@ -104,6 +121,11 @@ i, .navbar-brand{
   height: 1500px !important;
   width:35%;
   margin: auto;
+}
+
+.user-icon{
+  height:50px;
+  width:50px;
 }
   
 }

@@ -4,10 +4,15 @@
 
 
 
-  <div class="container mypage-container vh-100">
+  <div class="container mypage-container">
 
     <div class="d-flex align-items-end justify-content-center">
-      <h2 class="mb-0">{{ $user->name }}</h2>
+        @if ($user->user_icon !== null)
+            <img src="data:image/png;base64,{{ $user->user_icon }}" class="user-icon mr-3"> 
+        @else
+            <div class="user-icon mr-3"></div>
+        @endif
+        <h2 class="mb-0">{{ $user->name }}</h2>
         <p class="mb-1 ml-3"><i class="fas fa-heart mr-2"></i>Total : {{ $like_user_sum }}</p>
 
         @if ($login_user_id == $user->id)
@@ -15,7 +20,7 @@
 
           <span class="ml-3 d-none d-md-inline-block">|</span>
 
-          <a class="ml-3" href="">
+          <a class="ml-3" href="{{ route('edit_mypage') }}">
             <i class="fas fa-pen mr-1"></i>
             <span class="d-none d-md-inline-block">編集</span>
           </a>
@@ -34,7 +39,12 @@
         </div>
         @endif
     </div>
+
     
+    @if(count($posts) <= 6)
+    <div class="vh-100">
+    @endif
+
     @if (count($posts) > 0)
         <div class="row mt-5">
         @foreach ($posts as $post)
@@ -43,6 +53,7 @@
              data-toggle="modal" 
              data-target="#post-modal" 
              data-user="{{ $post->user->name }}" 
+             data-user_icon="data:image/png;base64,{{ $post->user->user_icon }}"
              data-caption="{{ $post->caption }}" 
              data-image="data:image/png;base64,{{ $post->image }}"
              data-url="{{ route('mypage', ['user_id'=>$post->user->id]) }}" >
@@ -54,7 +65,9 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content post modal-post">
 
-                <div class="modal-header">
+                <div class="modal-header d-flex align-items-center">
+                  <img id="user_icon" class="user-icon-sm mr-3">
+                  <div id="user_icon_sub" class="d-none user-icon-sm mr-3"></div> 
                   <a id="user"></a>
                   <button type="button" class="close" data-dismiss="modal" aria-label="閉じる"><span aria-hidden="true">&times;</span></button>
                 </div>
@@ -68,7 +81,7 @@
                         <a href="{{ route('delete', ['id'=>$post->id])}}">削除</a>
                       </div>
                       @endif
-                      <img class="w-100 h-100 mt-3"></img>
+                      <img id="post_image" class="w-100 h-100 mt-3"></img>
                       <p class="mt-3"></p>
                     </div>
 
@@ -93,6 +106,10 @@
     </div>
     @endif
 
+
+      @if(count($posts) <= 6)
+      </div>
+      @endif
 
       </div>
   </div>
