@@ -10,6 +10,8 @@ $(document).ready(()=>{
         let caption = button.data('caption');
         let image = button.data('image');
         let url = button.data('url');
+        let like_url = button.data('like_url');
+        let like_num = button.data('like_num');        
         let modal = $(this);
         modal.find('#user').eq(0).text(user);
         modal.find('#user').attr('href',url);
@@ -22,6 +24,8 @@ $(document).ready(()=>{
         modal.find('.card-body p').eq(0).text(caption);
         modal.find('.card-body #post-edit').attr('href',url);
         modal.find('#post_image').attr('src',image);
+        modal.find('#like_users').attr('href',like_url);
+        modal.find('#like_users').eq(0).text(like_num);
     });
 
     /*

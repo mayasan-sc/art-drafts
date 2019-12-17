@@ -52,4 +52,12 @@ class LikesController extends Controller
         return $likes_post_sum;
 
     }
+
+    public function like_users(Request $request){
+        $like_users = Like::where('post_id', $request->post_id)->get();
+        if (count($like_users) == 0){
+            $like_users = '0';
+        }
+        return view('like_users' , ['like_users'=>$like_users]);
+    }   
 }

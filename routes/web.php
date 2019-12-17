@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/update_user', 'PostsController@update_user',[\Auth::user()])->name('update_user');
 
     Route::post('/like', 'LikesController@like')->name('like');
+    Route::get('/like_users', 'LikesController@like_users')->name('like_users');
 
     Route::get('/edit', 'PostsController@edit')->name('edit');
     Route::post('/update', 'PostsController@update')->name('update');

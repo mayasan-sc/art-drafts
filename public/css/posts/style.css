@@ -40,6 +40,7 @@ i, .navbar-brand{
   height:15px;
   width:15px;
 }
+
 /*END : 全体*/
 
 /*TOP*/
@@ -58,7 +59,7 @@ i, .navbar-brand{
   background-color: rgba(0,0,0, 0.7);
 }
 
-.card-image {
+.card-image, .post-image {
   height: 280px;
   width:280px;
 }
@@ -79,7 +80,7 @@ i, .navbar-brand{
 /*END : TOP*/
 
 /*CREATE*/
-.create-form{
+.create-form, .like-users{
   padding:39px;
   color: white;
   background-color: rgba(0,0,0, 0.3); 
@@ -97,6 +98,7 @@ i, .navbar-brand{
 .mypage-container a{
   font-size: 14px;
 }
+
 /*END : CREATE*/
 
 
@@ -114,6 +116,11 @@ i, .navbar-brand{
 
 .create-container{
   width:50%;
+  margin: auto;
+}
+
+.like-users-container{
+  width:35%;
   margin: auto;
 }
 

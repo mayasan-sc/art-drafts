@@ -29,7 +29,9 @@
              data-user_icon="data:image/png;base64,{{ $post->user->user_icon }}"
              data-caption="{{ $post->caption }}" 
              data-image="data:image/png;base64,{{ $post->image }}"
-             data-url="{{ route('mypage', ['user_id'=>$post->user->id]) }}">
+             data-url="{{ route('mypage', ['user_id'=>$post->user->id]) }}"
+             data-like_url="{{ route('like_users',['post_id'=>$post->id] )}}"
+             data-like_num="{{ $likes_post_sum[$post->id] }}">
 
           <div class="post" id="post">
 
@@ -56,9 +58,9 @@
                         <button type="submit" style="border:none; background-color : transparent;"><i class="fas fa-heart mr-2"></i></button>
                     </form>
                     @if ($likes_post_sum[$post->id] > 0)
-                        <a href="">{{ $likes_post_sum[$post->id]}}</a>
+                        <a href="{{ route('like_users',['post_id'=>$post->id] )}}">{{ $likes_post_sum[$post->id]}}</a>
                     @else
-                        <a href="">0</a>
+                        <a>0</a>
                     @endif
                 </div>
             </div>
@@ -98,7 +100,7 @@
                               {{ csrf_field() }}
                               <button type="submit" style="border:none; background-color : transparent;"><i class="fas fa-heart mr-2"></i></button>
                           </form>
-                          <a href="">{{ $likes_post_sum[$post->id] }}</a>
+                          <a id="like_users">{{ $likes_post_sum[$post->id] }}</a>
                       </div>
 
                   </div>
