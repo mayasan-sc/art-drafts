@@ -14,7 +14,7 @@
         </a>
     </div>
 
-    @if(count($posts) <= 6)
+    @if(count($posts) <= 3)
     <div class="vh-100">
     @endif
 
@@ -110,7 +110,7 @@
 
     </div>
 
-    @if(count($posts) <= 6)
+    @if(count($posts) <= 3)
     </div>
     @endif
 
