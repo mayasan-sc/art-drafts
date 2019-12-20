@@ -41,12 +41,12 @@
     </div>
 
     
-    @if(count($posts) <= 3)
+    @if(count($posts) <= 12)
     <div class="vh-100">
     @endif
 
     @if (count($posts) > 0)
-        <div class="row mt-5 mypage-post-container">
+        <div class="row mt-5">
         @foreach ($posts as $post)
         <div class="col-4 text-left m-0 p-0" 
              data-toggle="modal" 
