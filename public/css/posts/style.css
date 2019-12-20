@@ -85,9 +85,12 @@ i, .navbar-brand{
   color: white;
   background-color: rgba(0,0,0, 0.3); 
 }
+/*END : CREATE*/
 
+/*MYPAHE*/
 .mypage-container{
   margin-top:100px !important;
+  margin-bottom: 300px !important;
 }
 
 
@@ -98,8 +101,8 @@ i, .navbar-brand{
 .mypage-container a{
   font-size: 14px;
 }
+/*END : MYPAGE*/
 
-/*END : CREATE*/
 
 
 @media screen and (min-width:768px) {
