@@ -46,7 +46,7 @@
     @endif
 
     @if (count($posts) > 0)
-        <div class="row mt-5">
+        <div class="row mt-5" mypage-post-container>
         @foreach ($posts as $post)
         <div class="col-4 text-left m-0 p-0" 
              data-toggle="modal" 
