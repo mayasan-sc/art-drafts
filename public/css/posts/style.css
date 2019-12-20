@@ -93,6 +93,10 @@ i, .navbar-brand{
   margin-bottom: 300px !important;
 }
 
+.mypage-post-container{
+  margin-bottom: 300px !important; 
+}
+
 
 .mypage-container, .mypage-container a{
   color: white;
