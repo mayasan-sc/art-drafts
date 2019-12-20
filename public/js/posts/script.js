@@ -1,7 +1,8 @@
 $(document).ready(()=>{
 
 
-    $('#post-modal').on('shown.bs.modal', function (event) {
+    $('#post-modal')
+    .on('shown.bs.modal', function (event) {
         event.stopPropagation()
 
         let button = $(event.relatedTarget);
@@ -26,15 +27,19 @@ $(document).ready(()=>{
         modal.find('#post_image').attr('src',image);
         modal.find('#like_users').attr('href',like_url);
         modal.find('#like_users').eq(0).text(like_num);
-    });
+    })
 
-    /*
-    $('#post-modal').on('hidden.bs.modal', function () {
-        modal.find('.card-body #user').text('');
-        modal.find('.card-body p').text('');
-        modal.find('form').attr('action','');
-        modal.find('img').attr('src','');
+    /* not working
+    .on('hidden.bs.modal', function () {
+        modal.find('#user').eq(0).text('');
+        modal.find('#user').attr('href','');
+        modal.find('.card-body p').eq(0).text('');
+        modal.find('.card-body #post-edit').attr('href','');
+        modal.find('#post_image').attr('src','');
+        modal.find('#like_users').attr('href','');
+        modal.find('#like_users').eq(0).text('');
     })
     */
-    
+ 
 });
+

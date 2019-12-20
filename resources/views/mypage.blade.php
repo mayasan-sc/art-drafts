@@ -48,8 +48,7 @@
     @if (count($posts) > 0)
         <div class="row mt-5">
         @foreach ($posts as $post)
-        <div type="button" 
-             class="col-4 text-left m-0 p-0" 
+        <div class="col-4 text-left m-0 p-0" 
              data-toggle="modal" 
              data-target="#post-modal" 
              data-user="{{ $post->user->name }}" 
@@ -59,7 +58,7 @@
              data-url="{{ route('mypage', ['user_id'=>$post->user->id]) }}"
              data-like_url="{{ route('like_users',['post_id'=>$post->id] )}}"
              data-like_num="{{ $likes_post_sum[$post->id] }}">
-            <img src="data:image/png;base64,{{ $post->image }}" class="w-100">
+            <img src="data:image/png;base64,{{ $post->image }}" class="w-100 h-100">
         </div>  
 
         <!-- Post Modal-->
