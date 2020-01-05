@@ -7,6 +7,16 @@
 
         <h2 class="mt-3">Create a New Post</h2>
 
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
+
         <div class="form-group mt-4">
           <label>File Input</label>
           <input type="file" class="form-control-file" name="image">

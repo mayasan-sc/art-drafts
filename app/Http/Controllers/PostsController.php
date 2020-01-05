@@ -56,6 +56,9 @@ class PostsController extends Controller
 
     public function store(Request $request){
 
+        $this->validate($request, [
+            'image' => 'dimensions:ratio=1.0'
+        ]);
         $post = new Post;
         $user = \Auth::user();
         $post->caption = request('caption');
